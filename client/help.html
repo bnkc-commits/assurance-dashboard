@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aide - Assurance Dashboard</title>
+</head>
+<body>
+  <h1>Guide d’utilisation</h1>
+
+  <h2>👤 Apporteurs</h2>
+  <ul>
+    <li><strong>Inscription :</strong> Remplissez le formulaire avec votre nom, identifiant et mot de passe. Votre compte sera créé en attente de validation.</li>
+    <li><strong>Validation :</strong> Un agent ou l’admin doit activer votre compte avant que vous puissiez vous connecter.</li>
+    <li><strong>Connexion :</strong> Une fois validé, utilisez votre identifiant et mot de passe pour vous connecter.</li>
+    <li><strong>Envoi de prospects :</strong> Après connexion, remplissez le formulaire prospect (nom + demande) et envoyez-le. Les agents recevront vos informations en temps réel.</li>
+  </ul>
+
+  <h2>🧑‍💼 Agents / Admin</h2>
+  <ul>
+    <li><strong>Connexion :</strong> Connectez-vous avec vos identifiants. Le compte initial est <code>admin/admin</code> (à modifier immédiatement).</li>
+    <li><strong>Validation des inscriptions :</strong> Utilisez le formulaire de validation pour activer les comptes apporteurs en attente.</li>
+    <li><strong>Logs :</strong> Consultez l’historique des actions (inscriptions, prospects envoyés, validations).</li>
+    <li><strong>Messages :</strong> Recevez en direct les prospects envoyés par les apporteurs.</li>
+    <li><strong>PDF :</strong> Cliquez sur “Imprimer Registre PDF” pour générer un document listant tous les prospects.</li>
+  </ul>
+
+  <h2>⚙️ Déploiement</h2>
+  <ul>
+    <li><strong>GitHub :</strong> Placez tous les fichiers dans un repo public ou privé.</li>
+    <li><strong>Render :</strong> Créez une base PostgreSQL et un Web Service connecté à votre repo.</li>
+    <li><strong>Variable d’environnement :</strong> Ajoutez <code>DATABASE_URL</code> dans les paramètres Render pour connecter votre backend à la base.</li>
+    <li><strong>Premier login :</strong> Utilisez <code>admin/admin</code> puis changez le mot de passe.</li>
+  </ul>
+
+  <h2>📖 Workflow complet</h2>
+  <ol>
+    <li>Apporteur s’inscrit → compte en attente.</li>
+    <li>Admin valide → compte actif.</li>
+    <li>Apporteur actif se connecte → envoie des prospects.</li>
+    <li>Agent reçoit les prospects en direct → consulte les logs → génère le PDF.</li>
+  </ol>
+
+  <p><em>Ce guide est intégré à l’application pour aider les utilisateurs à comprendre chaque étape.</em></p>
+</body>
+</html>
