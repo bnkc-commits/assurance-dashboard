@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Apporteur - Assurance</title>
-</head>
-<body>
-  <h1>Connexion Apporteur</h1>
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Mot de passe" required />
-    <button type="submit">Connexion</button>
-  </form>
+<form id="loginForm">
+  <input type="text" id="username" placeholder="Identifiant" required />
+  <input type="password" id="password" placeholder="Mot de passe" required />
+  <button type="submit">Connexion</button>
+</form>
 
-  <h2>Formulaire Prospect</h2>
-  <form id="prospectForm">
-    <input type="text" id="name" placeholder="Nom" required />
-    <input type="text" id="request" placeholder="Demande" required />
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/app.js"></script>
-</body>
-</html>
+<form id="registerForm">
+  <input type="text" id="name" placeholder="Nom complet" required />
+  <input type="text" id="usernameRegister" placeholder="Identifiant" required />
+  <input type="password" id="passwordRegister" placeholder="Mot de passe" required />
+  <button type="submit">Inscription</button>
+</form>
