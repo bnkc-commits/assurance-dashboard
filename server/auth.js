@@ -1,3 +1,13 @@
+const express = require("express");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const db = require("./db");
+
+// ⚠️ Il manquait cette ligne :
+const router = express.Router();
+
+const SECRET = "supersecret";
+
 // Inscription apporteur
 router.post("/register", async (req, res) => {
   const { name, username, password, role } = req.body;
@@ -28,3 +38,18 @@ router.post("/validate", async (req, res) => {
   await db.query("UPDATE users SET status='active' WHERE username=$1", [username]);
   res.json({ status: "Utilisateur validé" });
 });
+
+function authMiddleware(req, res, next) {
+  const header = req.headers["authorization"];
+  if (!header) return res.status(401).json({ error: "Token manquant" });
+  try {
+    const decoded = jwt.verify(header.split(" ")[1], SECRET);
+    req.user = decoded;
+    next();
+  } catch {
+    res.status(401).json({ error: "Token invalide" });
+  }
+}
+
+module.exports = router;
+module.exports.authMiddleware = authMiddleware;
