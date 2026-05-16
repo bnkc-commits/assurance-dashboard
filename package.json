@@ -1,0 +1,27 @@
+{
+  "name": "assurance-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard assurance avec PostgreSQL, authentification et PDF",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "body-parser": "^1.20.2",
+    "pdfkit": "^0.13.0",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "author": "Badou Narcisse Kadjo",
+  "license": "MIT"
+}
