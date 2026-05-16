@@ -8,7 +8,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Compte admin initial avec format email
+-- Compte admin initial
 INSERT INTO users (name, username, password_hash, role, status)
 VALUES (
     'Admin',
