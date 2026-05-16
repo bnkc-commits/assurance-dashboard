@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agent Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard Agent</h1>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Mot de passe" required />
+    <button type="submit">Connexion</button>
+  </form>
+
+  <h2>Messages reçus</h2>
+  <div id="messages"></div>
+
+  <h2>Logs</h2>
+  <div id="logs"></div>
+
+  <h2>Validation des inscriptions</h2>
+  <form id="validateForm">
+    <input type="email" id="validateEmail" placeholder="Email à valider" required />
+    <button type="submit">Valider</button>
+  </form>
+
+  <button onclick="printPDF()">Imprimer Registre PDF</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/agent.js"></script>
+</body>
+</html>
