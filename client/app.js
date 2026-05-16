@@ -1,16 +1,27 @@
-let token = null;
-const socket = io();
-let peer = new RTCPeerConnection();
-let channel = peer.createDataChannel("prospectData");
+// Inscription
+document.getElementById("registerForm").onsubmit = async (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const username = document.getElementById("usernameRegister").value;
+  const password = document.getElementById("passwordRegister").value;
+  const res = await fetch("/api/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, username, password })
+  });
+  const data = await res.json();
+  alert(data.status || data.error);
+};
 
+// Connexion
 document.getElementById("loginForm").onsubmit = async (e) => {
   e.preventDefault();
-  const email = document.getElementById("email").value;
+  const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
   const res = await fetch("/api/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ username, password })
   });
   const data = await res.json();
   if (data.token) {
@@ -19,18 +30,4 @@ document.getElementById("loginForm").onsubmit = async (e) => {
   } else {
     alert("Erreur: " + (data.error || "inconnue"));
   }
-};
-
-document.getElementById("prospectForm").onsubmit = async (e) => {
-  e.preventDefault();
-  const request = {
-    name: document.getElementById("name").value,
-    request: document.getElementById("request").value
-  };
-  await fetch("/api/prospect", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
-    body: JSON.stringify(request)
-  });
-  channel.send(JSON.stringify(request));
 };
