@@ -3,9 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("./db");
 
-// ⚠️ Il manquait cette ligne :
 const router = express.Router();
-
 const SECRET = "supersecret";
 
 // Inscription apporteur
